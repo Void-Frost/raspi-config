@@ -1,7 +1,6 @@
 #!/bin/sh
 # Part of raspi-config https://github.com/RPi-Distro/raspi-config
 # See LICENSE file for copyright and license details
-# TEST
 INTERACTIVE=True
 ASK_TO_REBOOT=0
 BLACKLIST=/etc/modprobe.d/raspi-blacklist.conf
