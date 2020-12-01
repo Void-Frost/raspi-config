@@ -710,7 +710,7 @@ See https://www.raspberrypi.org/documentation/configuration/config-txt/overclock
     elif is_pifour; then
         OVERCLOCK=$(whiptail --menu "Choose overclock preset" 20 60 10 \
             "None" "1500MHz ARM, 500MHz core, 3200MHz SDRAM, 0 overvolt" \
-            "High" "1700MHz ARM, 600MHz core, 3200MHz SDRAM, 0 overvolt" \
+            "High" "1700MHz ARM, 600MHz core, 3200MHz SDRAM, 4 overvolt" \
             "Turbo" "2000MHz ARM, 700MHz core, 3200MHz SDRAM, 6 overvolt" \
         3>&1 1>&2 2>&3)
    fi
@@ -735,7 +735,7 @@ See https://www.raspberrypi.org/documentation/configuration/config-txt/overclock
         elif is_pitwo; then
           set_overclock High 1000 500 500 2
           elif is_pifour; then
-          set_overclock High 1700 600 3200 0
+          set_overclock High 1700 600 3200 4
         fi
         ;;
       Turbo)
