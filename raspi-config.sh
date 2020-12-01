@@ -732,16 +732,16 @@ See https://www.raspberrypi.org/documentation/configuration/config-txt/overclock
       High)
         if is_pione; then
           set_overclock High 950 250 450 6
-        elif is_pitwo;
+        elif is_pitwo; then
           set_overclock High 1000 500 500 2
-          elif is_pifour;
+          elif is_pifour; then
           set_overclock High 1700 600 3200
         fi
         ;;
       Turbo)
       if is_pione; then
         set_overclock Turbo 1000 500 600 6
-        elif is_pifour;
+        elif is_pifour; then
         set_overclock Turbo 2000 700 3200 6
         fi
         ;;
