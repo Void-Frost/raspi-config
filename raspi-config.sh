@@ -682,8 +682,8 @@ set_memory_split() {
 }
 
 do_overclock() {
-  if ! is_pione && ! is_pitwo; then
-    whiptail --msgbox "Only Pi 1 or Pi 2 can be overclocked with this tool." 20 60 2
+  if ! is_pione && ! is_pitwo && ! is_pifour; then
+    whiptail --msgbox "Only Pi 1, Pi 2, or Pi 4 can be overclocked with this tool." 20 60 2
     return 1
   fi
   if [ "$INTERACTIVE" = True ]; then
@@ -707,6 +707,12 @@ See https://www.raspberrypi.org/documentation/configuration/config-txt/overclock
       "None" "900MHz ARM, 250MHz core, 450MHz SDRAM, 0 overvolt" \
       "High" "1000MHz ARM, 500MHz core, 500MHz SDRAM, 2 overvolt" \
       3>&1 1>&2 2>&3)
+    elif is_pifour; then
+        OVERCLOCK=$(whiptail --menu "Choose overclock preset" 20 60 10 \
+            "None" "1500MHz ARM, 500MHz core, 3200MHz SDRAM, 0 overvolt" \
+            "High" "1700MHz ARM, 600MHz core, 3200MHz SDRAM, 0 overvolt" \
+            "Turbo" "2000MHz ARM, 700MHz core, 3200MHz SDRAM, 6 overvolt" \
+        3>&1 1>&2 2>&3)
    fi
   else
     OVERCLOCK=$1
@@ -726,12 +732,18 @@ See https://www.raspberrypi.org/documentation/configuration/config-txt/overclock
       High)
         if is_pione; then
           set_overclock High 950 250 450 6
-        else
+        elif is_pitwo;
           set_overclock High 1000 500 500 2
+          elif is_pifour;
+          set_overclock High 1700 600 3200
         fi
         ;;
       Turbo)
+      if is_pione; then
         set_overclock Turbo 1000 500 600 6
+        elif is_pifour;
+        set_overclock Turbo 2000 700 3200 6
+        fi
         ;;
       *)
         whiptail --msgbox "Programmer error, unrecognised overclock preset" 20 60 2
