@@ -735,7 +735,7 @@ See https://www.raspberrypi.org/documentation/configuration/config-txt/overclock
         elif is_pitwo; then
           set_overclock High 1000 500 500 2
           elif is_pifour; then
-          set_overclock High 1700 600 3200
+          set_overclock High 1700 600 3200 0
         fi
         ;;
       Turbo)
