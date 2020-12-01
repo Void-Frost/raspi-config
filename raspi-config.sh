@@ -683,7 +683,7 @@ set_memory_split() {
 
 do_overclock() {
   if ! is_pione && ! is_pitwo && ! is_pifour; then
-    whiptail --msgbox "Only Pi 1, Pi 2, or Pi 4 can be overclocked with this tool." 20 60 2
+    whiptail --msgbox "Only Pi 1, Pi 2, and Pi 4 can be overclocked with this tool." 20 60 2
     return 1
   fi
   if [ "$INTERACTIVE" = True ]; then
