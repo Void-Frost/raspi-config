@@ -7,5 +7,7 @@ Note: all overclocking is at your own risk. Be careful.
 
 I don't know how long I'm going to keep this up-to-date for, but for now its there so :shrug:
 
+LAST UPDATE: 3/6/2021
+
 # if system crashes after overclocking, hold shift during boot
 # then, run this tool again and set a different preset or disable completely
